@@ -1,0 +1,840 @@
+@import "compass";
+@import "compass/reset";
+@import "breakpoint";
+@import url(http://fonts.googleapis.com/earlyaccess/cwtexhei.css);
+
+$ipad-pro: max-width 1025px; 
+$ipad: max-width 767px;
+$ipad-min: max-width 600px;
+$iphone: max-width 415px;
+$iphone5: max-width 321px;
+
+html,button,input {
+  font-family: 'cwTeXHei', sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  outline:none;
+  display: inline-block;
+}
+body {
+	margin: 0;
+	display: block;
+}
+p {
+	letter-spacing: 0.1rem;
+    font-size: 1rem;
+}
+.header {
+	width: 100%;
+	position: fixed;
+	z-index: 999;
+	background-color: #006564;
+    height: 80px;
+			@include breakpoint($iphone) {
+    			    height: 60px;
+    		}
+    img {
+    	padding-left: 3%;
+    	padding-top: 10px;
+		    @include breakpoint($iphone) {
+    			    width: 165px;
+    		}
+    }
+}
+@mixin setbg($cover,$topcenter) {
+	background-size: $cover;
+	background-position: $topcenter;
+}
+
+%section-bg-images {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    @include setbg(cover,top right);
+    @include breakpoint($ipad-pro) {
+    	@include setbg(cover,top center);
+    }
+}
+.includ1 {
+	background-image: url(../images/part1.jpg);
+	@extend %section-bg-images;
+	&::after {
+    background: -webkit-linear-gradient(rgba(255,255,255,0) 0%, rgba(201,201,201,0.44) 99%, rgba(201,201,201,0.55) 100%);
+    background: -o-linear-gradient(rgba(255,255,255,0) 0%, rgba(201,201,201,0.44) 99%, rgba(201,201,201,0.55) 100%);
+    background: linear-gradient(rgba(255,255,255,0) 0%, rgba(201,201,201,0.44) 99%, rgba(201,201,201,0.55) 100%); /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        width: 100%;
+        height: 100px;
+        content: "0000";
+        color: rgba(255, 255, 255, 0);
+        position: absolute;
+        bottom: 0px;
+    }
+    @include breakpoint($iphone) {
+        background-image: url(../images/mbbg0.png);
+    }    
+}
+
+.includ2 {
+	background-image: url(../images/part2.jpg);
+	width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+	@include setbg(cover,top right);
+	@include breakpoint($ipad-pro) {
+		@include setbg(cover,top right);
+	}
+    @include breakpoint($iphone) {
+        background-image: url(../images/mbbg1.png);
+    } 	
+}
+.includ3 {
+	background-image: url(../images/part3.jpg);
+	@extend %section-bg-images;	
+    @include breakpoint($iphone) {
+        background-image: url(../images/mbbg2.png);
+    } 	
+}
+.includ4 {
+	background-image: url(../images/part4.jpg);
+	@extend %section-bg-images;
+    @include breakpoint($iphone) {
+        background-image: url(../images/mbbg3.png);
+    } 	
+}
+.includ5 {
+	background-image: url(../images/part5.jpg);
+	background-position: bottom center;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    @include breakpoint($iphone) {
+        background-image: url(../images/mbbg4.png);
+    } 
+}
+.footer {
+	display: none;
+    position: fixed;
+    background-color: #fff;
+    width: 100%;
+    text-align: center;
+    z-index: 1;
+    bottom: 0%;
+    padding: 15px 0px;
+	@include breakpoint ($iphone) {
+    	padding: 10px 0px;
+	}
+	p {
+		@include breakpoint ($iphone) {
+		    letter-spacing: 0rem;
+    		font-size: 0.1rem;
+            font-size: 12px;
+		}
+	}
+}
+.box {
+    width: 435px;
+    position: relative;
+    top: 50%;
+    padding-left: 3%;
+    transform: translateY(-50%);
+	.tittle {
+		width: 100%;
+			@include breakpoint($ipad) {
+				width: 90%;
+				margin: auto;
+			}
+	}
+	.part2-tittle{
+		width: 240px;
+			@include breakpoint($ipad) {
+				padding-left: 5%;
+				padding-top: 4%;
+				    width: 200px;
+			}
+            @include breakpoint($iphone) {
+                padding-top: 10%;
+            }
+	}
+	p {
+	    font-size: 1.3rem;
+        width: 100%;
+		 margin-top: 15px;
+			@include breakpoint($ipad) {
+				width: 90%;
+				margin: auto;
+			}
+			@include breakpoint ($iphone) {
+				font-size: 1.2rem;
+			}
+	}
+	@include breakpoint ($ipad-pro) {
+    background: -moz-radial-gradient(left, ellipse cover, white 0%, rgba(255, 255, 255, 0) 70%);
+    background: -webkit-radial-gradient(left, ellipse cover, white 0%, rgba(255, 255, 255, 0) 70%);
+    background: radial-gradient(ellipse at left bottom, #ffffff 0%, rgba(255, 255, 255, 0) 71%);
+    width: 385px;
+	}
+	@include breakpoint($ipad) {
+		width: 100%;
+		padding-left: 0%;
+		background:0;
+	}
+}
+.mbbox1 {
+	@include breakpoint ($ipad) {
+    width: 100%;
+    height: 325px;
+    padding-left: 0%;
+    position: absolute;
+    top: inherit;
+    bottom: 0%;
+    transform: translateY(-0%);
+    @include breakpoint ($iphone) {
+        width: 100%;
+        position: absolute;
+        top: 200px;
+        transform: translateY(-160px);
+    }
+		&::before {
+		content: "0000";
+		width: 100%;
+		height: 325px;
+		color: rgba(255, 255, 255, 0);
+		background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 12%, rgba(255, 255, 255, 0.99) 99%, white 100%);
+		background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 12%, rgba(255, 255, 255, 0.99) 99%, white 100%);
+		background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 12%, rgba(255, 255, 255, 0.99) 99%, #ffffff 100%);
+		position: absolute;
+		z-index: -1;
+            @include breakpoint ($iphone) {
+                height: 0px;
+            }
+		}		
+	}
+}
+.mbtittle1 {
+	@include breakpoint ($ipad) {
+		padding-top: 10%;
+	}	
+}
+.mbbox2 {
+	@include breakpoint ($ipad) {
+    width: 100%;
+    height: auto;
+    padding-left: 0%;
+    position: relative;
+    top: 29%;
+        @include breakpoint ($iphone) {
+        width: 100%;
+        position: relative;
+        top: 200px;
+        transform: translateY(-160px);
+        }
+		&::before {
+	content: "0000";
+    width: 100%;
+    height: 180px;
+    color: rgba(255, 255, 255, 0);
+    position: absolute;
+    z-index: -1;
+    background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,0.95) 81%, rgba(255,255,255,1) 85%);
+    background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,0.95) 81%,rgba(255,255,255,1) 85%);
+    background: linear-gradient(to left, rgba(255,255,255,0) 0%,rgba(255,255,255,0.99) 200%,rgba(255,255,255,0.99) 0%);
+				}		
+    }
+}
+.line {
+    position: absolute;
+    z-index: 0;
+    right: 100px;
+    margin: 0 auto;
+    height: 100%;
+    background: #ffffff;
+    width: 1px;
+	@include breakpoint($ipad) {
+		right: 30px;
+	}
+}
+.line2 {
+    position: absolute;
+    z-index: 0;
+    right: 100px;
+    margin: 0 auto;
+    height: 90%;
+    background: #ffffff;
+    width: 1px;
+    @include breakpoint($ipad) {
+        right: 30px;
+    }
+}
+.container {
+    width: 1000px;
+    position: relative;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+	@include breakpoint($ipad-pro) {
+    		width: 90%;
+	}
+	@include breakpoint($ipad) {
+    		width: 90%;
+	}
+	@include breakpoint($iphone5) {
+    		width: 90%;
+	}
+	.quiz {    
+    border-bottom: #fff solid 1px;
+	.part5-tittle {
+		width: 500px;
+    	margin: auto;
+    	padding-bottom: 30px;
+			@include breakpoint($ipad-pro) {
+				width: 70%;
+                padding-bottom: 1%;
+			}
+			@include breakpoint($ipad) {
+				width: 100%;
+			}
+		}
+	}
+	.quiz-direction {
+    	width: 690px;
+    	margin: auto;
+        height: 300px;
+    	padding-top: 20px;
+			@include breakpoint($ipad) {
+				width: 100%;
+                height: 250px;
+			}
+		.direction {
+			font-size: 1.4rem;
+   			color: #fff;
+		}
+		.define {
+			color: #fff;
+			font-size: 1.3rem;
+		}
+		.start {
+            cursor: pointer;
+    		background-color: #b42a34;
+    		border: #b42a34 solid 1px;
+    		color: #fff;
+    		font-size: 1.2rem;
+    		margin-top: 100px;
+    		position: relative;
+    		left: 50%;
+    		transform: translateX(-50%);
+    		padding: 10px 20px;
+    		box-shadow:0 0 1em 2px #fff;
+		}
+	}
+}
+#restart{
+    cursor: pointer;
+    letter-spacing: 5px;
+    background-color: #b42a34;
+    border: #b42a34 solid 1px;
+    color: #fff;
+    font-size: 1.2rem;
+    margin-top: 100px;
+    position: relative;
+    left: 50%;
+    width: 100px;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    box-shadow: 0 0 1em 2px #fff;
+}
+%arrow {
+	width: 30px;
+	cursor: pointer;	
+}
+.arrow {
+ 	@extend %arrow;
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    z-index: 1;
+    transform: translateX(-50%);
+}
+.part1-arrow2 {
+    @extend %arrow;
+    height: 10%;
+    position: absolute;
+    left: -15px;
+    top: 99.5%;
+    &::before {
+    position: absolute;
+    content: "000";
+    width: 1px;
+    bottom: 0;
+    top: 28px;
+    left: 14px;
+    color: rgba(255, 255, 255, 0);
+    height: 85%;
+    border-right: 1px solid #fff;
+    }
+    @include breakpoint ($iphone) {
+        bottom: 25px;
+    }   
+}
+.part1-arrow {
+ 	@extend %arrow;
+ 	width: 30px;
+    position: absolute;
+    left: -15px;
+    bottom: 50px;
+    @include breakpoint ($iphone) {
+        bottom: 25px;
+    }	
+}
+%dot {
+    -webkit-transition: box-shadow 1s, width 0.5s, height 0.5s;
+    -moz-transition: box-shadow 1s, width 0.5s, height 0.5s;
+    -o-transition: box-shadow 1s, width 0.5s, height 0.5s;
+    -ms-transition: box-shadow 1s, width 0.5s, height 0.5s;
+    transition: box-shadow 1s, width 0.5s, height 0.5s;
+    width: 10px;
+    height: 10px;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 100%;
+    background: #ffffff;
+    position: absolute;
+    cursor: pointer;
+    -webkit-box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.15), 0 0 0 3px #f5f6f7;
+    box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.15), 0 0 0 3px #f5f6f7;
+	&:hover {
+    	background: #145c5f;
+    	-webkit-box-shadow: 0 0 0 5px rgba(20, 92, 95, 0.15), 0 0 0 3px #f5f6f7;
+    	box-shadow: 0 0 0 5px rgba(20, 92, 95, 0.15), 0 0 0 3px #f5f6f7;
+	}
+}
+	@mixin before($content,$width) {
+			&::before {
+			text-align: right;
+    		content: $content;
+    		position: absolute;
+    		width: $width;
+    		bottom: -7px;
+    		right: 40px;
+    		color: #fff;
+    		font-size: 1.2rem;
+    		letter-spacing: 2px;
+    		text-shadow: 0px 0px 15px #0a0a0a;    		
+ 				}
+ 		&:hover::before {
+ 			padding: 5px; 
+    		bottom: -12px;
+ 			background-color: rgba(255, 255, 255, 0.26);
+		    text-shadow: 0px 0px 0px #0a0a0a;
+    		-moz-transition: all 200ms ease-out;
+    		-webkit-transition: all 200ms ease-out;
+    		-o-transition: all 200ms ease-out;
+    		-ms-transition: all 200ms ease-out;
+    		transition: all 200ms ease-out; 
+ 				}
+		}	
+.dorts1 {
+ 	@extend %dot;
+ 	bottom: 125px;
+	@include before("國泰航空",80px);
+	@include breakpoint($iphone) {
+		bottom: 80px;
+	}
+}
+.dorts2 {
+ 	@extend %dot;
+ 	bottom: 180px;
+	@include before("冷知識大評比",118px);
+	@include breakpoint($iphone) {
+		bottom: 120px;
+	}
+}
+.dorts3 {
+ 	@extend %dot;
+ 	bottom: 235px;
+	@include before("打造企業恆毅力",135px);
+	@include breakpoint($iphone) {
+		bottom: 160px;
+	}
+}
+.dorts4 {
+ 	@extend %dot;
+ 	bottom: 290px;
+	@include before("安心享受 翺翔人生",162px);
+	@include breakpoint($iphone) {
+		bottom: 200px;
+	}
+}
+.dorts5 {
+ 	@extend %dot;
+ 	bottom: 235px;
+	@include before("江振誠 我的人生沒有疆界",220px);
+	@include breakpoint($iphone) {
+		bottom: 160px;
+	}
+}
+.dorts6 {
+ 	@extend %dot;
+ 	bottom: 290px;
+	@include before("舒心體驗 寫意人生",162px);
+	@include breakpoint($iphone) {
+		bottom: 200px;
+	}
+}
+.dorts9 {
+    @extend %dot;
+    bottom: 40px;
+    @include before("國泰航空",80px);
+    @include breakpoint($iphone) {
+        bottom: 20px;
+    }
+}
+.dorts10 {
+    @extend %dot;
+    bottom: 100px;
+    @include before("冷知識大評比",118px);
+    @include breakpoint($iphone) {
+        bottom: 60px;
+    }
+}
+.dorts7 {
+ 	@extend %dot;
+ 	bottom: 160px;
+	@include before("向時尚「行旅」學設計",200px);
+	@include breakpoint($iphone) {
+		bottom: 100px;
+	}
+}
+.dorts8 {
+ 	@extend %dot;
+ 	bottom: 220px;
+	@include before("用心自在 家的設計",162px);
+	@include breakpoint($iphone) {
+		bottom: 140px;
+	}
+}
+@mixin time($due,$del) {
+  animation-duration: $due;
+  animation-fill-mode: both;
+  -webkit-animation-delay: $del; /* Safari 4.0 - 8.0 */
+  animation-delay: $del;	
+}
+
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+.Question {
+    color: #fff;
+    font-size: 1.5rem;
+    @include breakpoint($iphone) {
+        font-size: 1.3rem;
+    }
+    .right,.wrong {
+        font-size: 2rem;
+    }
+}
+.inside{ 
+    p{
+    color: #fff;
+    font-size: 1.5rem;        
+}
+}
+.nextbuttom {
+    cursor: pointer;
+    display: block;
+    background-color: #b42a34;
+    border: #b42a34 solid 1px;
+    color: #fff;
+    font-size: 1.2rem;
+    margin-top: 60px;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    box-shadow: 0 0 1em 2px #fff;    
+}
+.nextbuttom, .description, .descriptionTittle, .right, .wrong {
+  display: none;
+}
+.select {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 0px;
+    .choice {
+        width: 200px;
+        height: 200px;
+        cursor: pointer;
+        @include breakpoint($iphone) {
+            width: 150px;
+            height: 150px;
+        }
+        img {
+            width: 100%;
+            border-radius: 100%;
+            display: flex;
+            justify-content: center;
+            margin: auto;
+        }
+        p {
+            color: #000;
+            text-align: -webkit-center;
+            background-color: #fff;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.3rem;
+            @include breakpoint($iphone) {
+                font-size: 1rem;
+            }  
+        }
+    }
+}
+#result {
+    .inner {
+        width: 100%;
+        font-size: 1.5rem;
+        color: #fff;
+        @include breakpoint($iphone) {
+            font-size: 1.3rem;
+        }
+            p {
+                color: white;
+                font-size: 1.8rem;
+                text-align: center;
+                padding-bottom: 10px;
+            }
+    }
+    .reset,.shared {
+    background-color: #006564;
+    border: #006564 solid 1px;
+    color: #fff;
+    width: 48%;
+    margin-right: 10px;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    position: relative;
+    padding: 10px 20px;
+    cursor: pointer;
+        @include breakpoint($iphone) {
+            width: 100%;
+        }    
+    }
+}
+.ad {
+	width: 97.5%;
+    margin: 3% 3% 0 0;
+}
+.from {
+    display: none;
+    color: #fff;
+    text-align: center;
+    p {
+        font-size: 1.3rem;
+        padding-bottom: 20px;
+            @include breakpoint($iphone) {
+                font-size: 1.2rem;
+                padding-bottom: 0px;
+            }
+        span {
+            font-size: 1.7rem;
+            @include breakpoint($iphone) {
+                font-size: 1.4rem;
+            }
+        }
+    }
+    .field-label {
+        display: -webkit-inline-box;
+        font-size: 1.5rem;
+        color: #fff;
+        padding-right: 10px;
+            @include breakpoint($iphone) {
+                    font-size: 1.2rem;
+            }
+        .underline {
+            border-bottom: 1px solid #006564;
+            cursor: pointer;
+        }
+    }
+    .field {
+        display:  -webkit-inline-box;
+    }
+    .information {
+            width: 450px;
+            margin: 5px 0px;
+            color: #000;
+            font-family:Microsoft JhengHei; 
+            @include breakpoint($ipad-min) {
+                    width: 150px;
+                    color: #000;
+            }            
+    }
+    .field-labelblock {
+        padding-bottom: 10px;
+            @include breakpoint($iphone) {
+                padding-bottom: 5px;
+            }
+    }
+    .btn {
+            width: 85%;
+            margin: auto;
+            cursor: pointer;
+            background-color: #b42a34;
+            border: #b42a34 solid 1px;
+            color: #fff;
+            font-size: 1.2rem;
+            padding: 10px 0px;
+            letter-spacing: 5px;
+    }
+    .checkbox {
+            position: relative;
+            left: -15px;
+            display: inline-block;
+            font-size: 12px;
+            @include breakpoint($iphone) {
+                left: -5px;
+            }
+            &::before {
+                background-color: #fff;
+                border: 1px solid #30b0d7;
+                padding: 9px;
+                border-radius: 3px;
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                content: "";
+            }
+            &::after {
+                content: '\2714';
+                    font-size: 14px;
+                    position: absolute;
+                    top: 1px;
+                    left: 4px;
+                    color: #30b0d7;
+            }
+    }
+}
+@mixin colse_buttom($rotate) {
+    content: "|";
+    color: rgba(255, 255, 255, 0);
+    border-right: 1px solid #000;
+    width: 1px;
+    height: 30px;
+    left: 20px;
+    position: absolute;
+    z-index: 1000;
+    transform: $rotate;  
+    @include breakpoint($iphone) {
+        height: 25px;
+    }
+}
+.attenion {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 60%;
+    height: 60%;
+    text-align: justify;
+    position: fixed;
+    z-index: 999;
+    background-color: #fff;
+    padding: 15px;
+    color: #000; 
+    @include breakpoint($iphone) {
+        width: 100%;
+        height: 100%;      
+    }
+    .attenion_tittle {
+        color: #006564;
+        border-bottom: 2px solid #006564;
+        width: 205px;
+        font-size: 1.5rem;
+        padding-bottom: 5px;
+        font-weight: bold;
+        margin: 20px;
+        @include breakpoint($iphone) {
+            font-size: 1rem;
+            width: 150px;
+            margin-top: 15px;
+    }
+    }
+    .attenion_tittle2 {
+        color: #006564;
+        border-bottom: 2px solid #006564;
+        width: 90px;
+        font-size: 1.5rem;
+        padding-bottom: 5px;
+        font-weight: bold;
+        margin: 20px;
+        @include breakpoint($iphone) {
+            font-size: 1rem;
+            margin: 8px 20px;
+            padding-top: 5px;
+            padding-bottom: 0px;
+            width: 70px;
+    }
+    }
+    .attenion_text {
+        padding: 0px 20px;
+        letter-spacing: 6px;
+        line-height: 2;
+        font-size: 1.2rem;
+    @include breakpoint($iphone) {
+        letter-spacing: 0px;
+        line-height: 1.5;
+        font-size: 1rem;
+    }
+    }
+    .attenion_text2 {
+        padding: 0px 20px;
+        letter-spacing: 0px;
+        line-height: 1.4;
+        font-size: 1.2rem;
+        @include breakpoint($iphone) {
+            line-height: 1;
+            font-size: 13px;
+        }
+    }
+    .attenion_close {
+    padding-top: 15px;
+    width: 50px;
+    height: 30px;
+    cursor: pointer;
+    position: absolute;
+    z-index: 999;
+    right: 20px;
+        &::before {
+            @include colse_buttom(rotate(315deg));
+        }
+        &::after {
+            @include colse_buttom(rotate(-315deg));
+        }
+    }
+}
+.tks {
+    display: none;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 1.4rem;
+    color: #fff;
+}
+.loading {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 99999;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    background: #333 url('../images/loading.gif') no-repeat center center; 
+}
